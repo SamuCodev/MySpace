@@ -11,13 +11,16 @@ export const actualizarContadores = () => {
     guardarItem('contadorUI', counterInit)
 }
 
+const obtenerTareasCompletadas = () => tareas.filter(tarea => tarea.completado).length
+
 //! Funcion que se encarga de renderizar y limpiar todo el contenedor de tareas
 export const renderizarTareas = () => {
     const tareasContainer = document.querySelector('.tareas-card-container')
     tareasContainer.innerHTML = '' //* Reinicia el contenedor para que no se dupliquen tareas existentes
     //* Control del contadr de tareas completadas
-    counterTareasInit.textContent = counterInit
+    counterTareasInit.textContent = obtenerTareasCompletadas()
     counterTareasTotal.textContent = tareas.length
+    actualizarContadores()
 
     //* Renderizado de cada tarea en el array "Tarea" con sus propias funcionalidades
     tareas.forEach(tarea => {
