@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <title>Productividad</title>
+</head>
+
+<body>
+    <header>
+        <h2>Mi espacio</h2>
+    </header>
+    <main>
+        <section class="sections-bar">
+            <button class="btn-sections-sidebar" id="tareas-btn">Tareas</button>
+            <button class="btn-sections-sidebar" id="notas-btn">Notas</button>
+            <button class="btn-sections-sidebar" id="habitos-btn">Habitos</button>
+        </section>
+        <section class="app-card">
+            <section class="tareas-section">
+                <div class="tareas-card-header">
+                    <p>Tareas completadas</p>
+                    <p><span class="counter-tareas-init">0</span> de <span class="counter-tareas-total">0</span></p>
+                </div>
+                <div class="tareas-card-editor">
+                    <input type="text" placeholder="Nueva tarea..." class="tarea-input-user">
+                    <button class="add-tarea">Agregar</button>
+                </div>
+                <div class="tareas-card-container">
+                    <article class="tarea">
+                        <div class="tarea-header">
+                            <div class="tarea-info">
+                                <input type="checkbox">
+                                <p>Terminar modulo de rutas ES6</p>
+                            </div>
+                            <span class="tareas-date-badge">Hoy</span>
+
+                        </div>
+                        <div class="tarea-footer">
+                            <button class="del-tarea">Eliminar</button>
+                        </div>
+                    </article>
+
+
+
+                </div>
+            </section>
+            <section class="notas-section">
+                <div class="notas-card-header">
+                    <p>Notas rapidas</p>
+                    <button class="add-note">+ Agregar</button>
+                </div>
+                <div class="notas-card-container">
+                    <article class="nota">
+                        <span class="color-nota"></span>
+                        <h5>Titulo</h5>
+                        <p>Descripcion...</p>
+                    </article>
+                    <article class="nota">
+                        <span class="color-nota"></span>
+                        <h5>Titulo</h5>
+                        <p>Descripcion...</p>
+                    </article>
+                    <article class="nota">
+                        <span class="color-nota"></span>
+                        <h5>Titulo</h5>
+                        <p>Descripcion...</p>
+                    </article>
+
+                </div>
+            </section>
+            <section class="habitos-section">
+                <div class="habitos-card-header">
+                    <p>Habitos de la semana</p>
+                </div>
+                <div class="habitos-card-container">
+                    <article class="habito">
+                        <div class="habito-header">
+                            <p>Estudiar JS</p>
+                            <p><span class="racha-number">5</span> dias</p>
+                        </div>
+                        <div class="habito-dias">
+                            <button>Lun</button>
+                            <button>Mar</button>
+                            <button>Mie</button>
+                            <button>Jue</button>
+                            <button>Vie</button>
+                            <button>Sab</button>
+                            <button>Dom</button>
+                        </div>
+                        <button class="del-habito">Borrar</button>
+                    </article>
+                </div>
+            </section>
+        </section>
+
+        <div class="overlay oculto">
+            <div class="modal-notas">
+                <div class="modal-notas-header">
+                    <p>Nueva nota</p>
+                    <button class="cerrar-modal">X</button>
+                </div>
+                <div class="modal-notas-editor">
+                    <input type="text" class="nota-title" placeholder="Titulo...">
+                    <textarea name="desc" id="desc" class="nota-desc" placeholder="Descripcion..."></textarea>
+                    <p>Personalizacion de la nota</p>
+                    <div class="container-color-nota">
+                        <input type="color" class="color-nota-selector">
+                        <p>Color de la nota</p>
+                    </div>
+                    <div class="container-fijado">
+                        <input type="checkbox">
+                        <p>Fijar nota</p>
+                    </div>
+                </div>
+                <div class="modal-notas-footer">
+                    <button class="del-nota">Borrar</button>
+                    <button class="crear-nota">Crear</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

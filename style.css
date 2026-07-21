@@ -1,0 +1,419 @@
+:root {
+    --bg-base: hsl(220, 20%, 10%);
+    --bg-card: hsl(220, 18%, 14%);
+    --border: hsl(220, 15%, 22%);
+    --inputs: hsl(220, 16%, 18%);
+    --primary-text: hsl(210, 20%, 92%);
+    --secundary-text: hsl(210, 10%, 65%);
+    --text-muted: hsl(210, 10%, 45%);
+    --accent: hsl(210, 85%, 60%);
+    --secundary-accent: hsl(210, 85%, 40%);
+    --completed: hsl(152, 50%, 50%);
+    --warning: hsl(30, 50%, 35%);
+    --transition: all 0.4s ease;
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    /*border: 1px solid red;*/
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-base);
+    color: var(--primary-text);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100vh;
+}
+
+header {
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.sections-bar {
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+    background-color: var(--bg-card);
+    width: fit-content;
+    margin: 0 auto;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.btn-sections-sidebar {
+    padding: 0.6rem 1.5rem;
+    color: var(--primary-text);
+    background: none;
+    cursor: pointer;
+    border: none;
+    white-space: nowrap;
+}
+
+.app-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-card);
+    width: min(100%), 580px;
+    max-width: 580px;
+    padding: 1rem clamp(1rem, 3vw, 3rem);
+    margin: 2rem auto 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.tareas-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tareas-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.tareas-card-editor {
+    display: flex;
+    gap: 5px;
+}
+
+.tareas-card-editor input {
+    flex: 5;
+    color: var(--primary-text);
+    background-color: var(--inputs);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    outline: none;
+}
+
+.tareas-card-editor input:focus {
+    border-color: var(--secundary-accent);
+    box-shadow: 0 0 8px rgba(60, 130, 246, 0.5);
+}
+
+.tareas-card-editor button {
+    flex: 1;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--accent);
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tareas-card-editor button:hover {
+    background-color: var(--secundary-accent);
+}
+
+.tareas-card-container {
+    margin-top: 20px;
+}
+
+.tarea {
+    display: flex;
+    border-top: 1px solid hsl(210, 10%, 25%);
+    padding: 1rem;
+    align-items: center;
+    font-size: 0.9rem;
+    flex-direction: column;
+}
+
+.tarea-header {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.tarea-header input {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    appearance: none;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--bg-card);
+    flex-shrink: 0;
+}
+
+.tarea-header input:checked {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.tarea-header input:checked::after {
+    content: '✓';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    line-height: 1;
+    color: white;
+    border-radius: 2px;
+}
+
+.tareas-date-badge {
+    background-color: var(--warning);
+    color: hsl(30, 100%, 85%);
+    padding: 1px 8px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.tarea-info {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.tarea-footer {
+    margin: 0.75rem 0.75rem;
+    width: 100%;
+}
+
+.del-tarea {
+    width: 100%;
+    padding: 0.4rem;
+    cursor: pointer;
+    background-color: var(--inputs);
+    border: none;
+    border-radius: 5px;
+    color: var(--primary-text);
+    transition: var(--transition);
+}
+
+.del-tarea:hover {
+    background-color: var(--warning);
+    transform: translateY(-4px);
+}
+
+.tarea-selected {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.notas-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.notas-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    align-items: center;
+    font-weight: 600;
+}
+
+.add-note {
+    background-color: var(--accent);
+    border: none;
+    color: var(--primary-text);
+    padding: 0.4rem 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notas-card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.nota {
+    border: 1px solid var(--border);
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: var(--bg-base);
+    border-left: 5px solid hsl(210, 85%, 40%);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(220, 20%, 5%, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.modal-notas {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 75%;
+}
+
+.modal-notas-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.cerrar-modal {
+    background-color: var(--bg-card);
+    border: none;
+    color: var(--primary-text);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.modal-notas-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 100%;
+}
+
+.modal-notas-editor .nota-title {
+    width: auto;
+    border-radius: 5px;
+    border: none;
+    padding: 0.5rem;
+    outline: none;
+}
+
+.modal-notas-editor .nota-desc {
+    width: auto;
+    resize: none;
+    height: 100%;
+    padding: 0.5rem;
+    outline: none;
+    border-radius: 5px;
+}
+
+.container-color-nota {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.color-nota-selector {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    appearance: none;
+}
+
+.color-nota-selector::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.color-nota-selector::-webkit-color-swatch {
+    border-radius: 6px;
+    border: none;
+}
+
+.color-nota-selector::-moz-color-swatch {
+    border-radius: 6px;
+    border: none;
+}
+
+.cerrar-modal:hover {
+    color: var(--secundary-accent);
+}
+
+.container-fijado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.container-fijado input {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--bg-card);
+    flex-shrink: 0;
+}
+
+.container-fijado input:checked {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.container-fijado input:checked::after {
+    content: '✓';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    line-height: 1;
+    color: white;
+    border-radius: 2px;
+}
+
+.modal-notas-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-notas-footer button {
+    padding: 0.7rem 1.5rem;
+    background-color: var(--accent);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--primary-text);
+    transition: var(--transition);
+}
+
+.modal-notas-footer button:hover {
+    background-color: var(--secundary-accent);
+}
+
+
+.selected {
+    background-color: var(--inputs);
+    border-radius: 10px;
+    color: var(--accent);
+}
+
+.oculto {
+    display: none;
+}
