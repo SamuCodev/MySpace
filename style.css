@@ -250,6 +250,10 @@ header {
     transition: var(--transition);
 }
 
+.nota p {
+    font-size: 0.9rem;
+}
+
 .nota:hover {
     transform: translateY(-6px);
     background: hsl(220, 15%, 22%);

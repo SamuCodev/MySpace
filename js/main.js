@@ -2,7 +2,7 @@ import { activarModulo } from "./router.js";
 import { leerItem } from "./storage.js";
 import { crearTarea } from "./tareas/tareas.js";
 import { renderizarTareas } from "./tareas/tareasUI.js";
-import { AbrirModal, btnUpdateNota, CerrarModal } from "./modalNotas.js";
+import { AbrirModal, CerrarModal, titleNota, textoNota, colorNota } from "./modalNotas.js";
 import { crearNota } from "./notas/notas.js";
 import { renderizarNotas } from "./notas/notasUI.js";
 
@@ -18,12 +18,13 @@ agregarTarea.addEventListener('click', () => {
 
 const btnCrearNota = document.querySelector('.crear-nota')
 btnCrearNota.addEventListener('click', () => {
-    crearNota()
+    crearNota(titleNota.value, textoNota.value, colorNota.value)
     renderizarNotas()
+    CerrarModal()
 })
 
-const cerrarModal = document.querySelector('.cerrar-modal')
-cerrarModal.addEventListener('click', () => {
+const btnCerrarModal = document.querySelector('.cerrar-modal')
+btnCerrarModal.addEventListener('click', () => {
     CerrarModal()
 })
 
@@ -37,9 +38,4 @@ document.addEventListener('keydown', (e) => {
 const abrirModalNota = document.querySelector('.add-note')
 abrirModalNota.addEventListener('click', () => {
     AbrirModal()
-})
-
-const btnBorrarNota = document.querySelector('.del-nota')
-btnBorrarNota.addEventListener('click', () => {
-    borrarNota()
 })

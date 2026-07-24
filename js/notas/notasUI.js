@@ -1,4 +1,5 @@
-import { notas } from "./notas.js"
+import { AbrirModal, AbrirModalUpdate } from "../modalNotas.js";
+import { borrarNota, notas } from "./notas.js"
 
 export const renderizarNotas = () => {
     let notasContainer = document.querySelector('.notas-card-container')
@@ -7,16 +8,16 @@ export const renderizarNotas = () => {
         const articleNota = document.createElement('article')
         articleNota.classList.add('nota')
         articleNota.innerHTML = `
-        <h5>${nota.titulo}</h5>
+        <h4>${nota.titulo}</h4>
         <p>${nota.texto}</p>
         `
         articleNota.style.borderLeftColor = nota.color
         notasContainer.appendChild(articleNota)
 
 
-        // articleNota.addEventListener('click', () => {
-        //     editarNota(nota)
-        // })
+        articleNota.addEventListener('click', () => {
+            AbrirModalUpdate(nota)
+        })
     });
 }
 
