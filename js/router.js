@@ -26,6 +26,10 @@ export const activarModulo = (id) => {
 
 navBar.forEach(modulo => {
     modulo.boton.addEventListener('click', () => {
-        activarModulo(modulo.id)
+        if (modulo.id == "habitos") {
+            alert("Esta seccion aun esta en proceso...")
+        } else {
+            activarModulo(modulo.id)
+        }
     })
 });

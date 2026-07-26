@@ -240,6 +240,15 @@ header {
     margin-top: 1rem;
 }
 
+.nothing-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--text-muted);
+
+}
+
 .nota {
     border: 1px solid var(--border);
     padding: 0.5rem;
@@ -250,8 +259,29 @@ header {
     transition: var(--transition);
 }
 
+.nota p,
+h4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+}
+
 .nota p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+}
+
+.nota .fecha {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .nota:hover {
@@ -316,6 +346,9 @@ header {
     border: none;
     padding: 0.5rem;
     outline: none;
+    background-color: var(--bg-card);
+    border: 2px solid var(--border);
+    color: var(--primary-text);
 }
 
 .modal-notas-editor .nota-desc {
@@ -325,7 +358,12 @@ header {
     padding: 0.5rem;
     outline: none;
     border-radius: 5px;
+    background-color: var(--bg-card);
+    border: 2px solid var(--border);
+    color: var(--primary-text);
+    font-family: sans-serif;
 }
+
 
 .container-color-nota {
     display: flex;
@@ -417,6 +455,7 @@ header {
 .modal-notas-footer button:hover {
     background-color: var(--secundary-accent);
 }
+
 
 .selected {
     background-color: var(--inputs);

@@ -16,7 +16,7 @@ agregarTarea.addEventListener('click', () => {
     renderizarTareas()
 })
 
-const btnCrearNota = document.querySelector('.crear-nota')
+export const btnCrearNota = document.querySelector('.crear-nota')
 btnCrearNota.addEventListener('click', () => {
     crearNota(titleNota.value, textoNota.value, colorNota.value)
     renderizarNotas()
